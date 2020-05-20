@@ -14,6 +14,10 @@ public class Frame extends JFrame {
 	
 	// FIELDS //
 	private Scroller scroller;
+	private Toolbar toolbar;
+	private Optionbar optionbar;
+	
+	private Tool cursor;
 	
 	/**
 	 * Constructor. Initializes settings.
@@ -21,13 +25,34 @@ public class Frame extends JFrame {
 	Frame() {
 		this.setLayout(new BorderLayout());
 		
-		scroller = new Scroller();
-		this.add(scroller, BorderLayout.CENTER);
+		initComponents();
 		
 		this.setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
 		this.setMinimumSize(new Dimension(MIN_WIDTH, MIN_HEIGHT));
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.pack();
 		this.setVisible(true);
+	}
+	
+	/**
+	 * Creates components and adds them.
+	 */
+	private void initComponents() {
+		toolbar = new Toolbar(this);
+		this.add(toolbar, BorderLayout.WEST);
+		
+		scroller = new Scroller();
+		this.add(scroller, BorderLayout.CENTER);
+		
+		optionbar = new Optionbar();
+		this.add(optionbar, BorderLayout.EAST);
+	}
+	
+	/**
+	 * Changes the selected tool based on command given; called in Toolbar.
+	 * @param selected the tool to switch to
+	 */
+	public void changeTool(String selected) {
+		cursor = Tool.toTool(selected);
 	}
 }
