@@ -1,5 +1,7 @@
+package DrawFree;
+
 /**
- * <code>Driver</code> class. Runs the program.
+ * <code>DrawFree.Driver</code> class. Runs the program.
  */
 public class Driver {
 	/**

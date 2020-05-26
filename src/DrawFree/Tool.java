@@ -1,5 +1,7 @@
+package DrawFree;
+
 /**
- * <code>Tool</code> enum. Represents each of the kinds of tools the user can use.
+ * <code>DrawFree.Tool</code> enum. Represents each of the kinds of tools the user can use.
  */
 public enum Tool {
 	PENCIL,

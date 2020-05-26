@@ -1,12 +1,14 @@
+package DrawFree;
+
 import javax.swing.*;
 import java.awt.*;
 
 /**
- * <code>Frame</code> class. Contains all the GUI for the app.
+ * <code>DrawFree.Frame</code> class. Contains all the GUI for the app.
  */
 public class Frame extends JFrame {
 	// CONSTANTS //
-	final private static int DEFAULT_WIDTH = 500;
+	final private static int DEFAULT_WIDTH = 750;
 	final private static int DEFAULT_HEIGHT = 500;
 	
 	final private static int MIN_WIDTH = 250;
@@ -44,15 +46,19 @@ public class Frame extends JFrame {
 		scroller = new Scroller();
 		this.add(scroller, BorderLayout.CENTER);
 		
-		optionbar = new Optionbar();
+		optionbar = new Optionbar(this);
 		this.add(optionbar, BorderLayout.EAST);
 	}
 	
 	/**
-	 * Changes the selected tool based on command given; called in Toolbar.
+	 * Changes the selected tool based on command given; called in DrawFree.Toolbar.
 	 * @param selected the tool to switch to
 	 */
 	public void changeTool(String selected) {
 		cursor = Tool.toTool(selected);
+	}
+	
+	public void doOption(String selected) {
+		
 	}
 }

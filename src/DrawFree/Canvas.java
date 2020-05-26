@@ -1,9 +1,11 @@
+package DrawFree;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 
 /**
- * <code>Canvas</code> class. The "canvas" the user "paints" on.
+ * <code>DrawFree.Canvas</code> class. The "canvas" the user "paints" on.
  */
 public class Canvas extends JPanel {
 	// CONSTANTS //
@@ -17,7 +19,7 @@ public class Canvas extends JPanel {
 	private int height;
 	
 	/**
-	 * Default constructor. Initializes a <code>Canvas</code> with default width and height.
+	 * Default constructor. Initializes a <code>DrawFree.Canvas</code> with default width and height.
 	 */
 	Canvas() {
 		height = DEFAULT_HEIGHT;
@@ -25,6 +27,10 @@ public class Canvas extends JPanel {
 		this.setPreferredSize(new Dimension(width, height));
 	}
 	
+	/**
+	 * Redraws the canvas.
+	 * @param g The <code>Graphics</code> instance used to draw.
+	 */
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -32,7 +38,11 @@ public class Canvas extends JPanel {
 		g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, INTERPOLATION_HINT);
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, ANTIALIASING_HINT);
 		
+		// Actual background
 		g2.setColor(Color.WHITE);
 		g2.fillRect(0, 0, width, height);
+		
+		// Draw objects
+		
 	}
 }

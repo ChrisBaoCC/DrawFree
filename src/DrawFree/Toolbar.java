@@ -1,9 +1,11 @@
+package DrawFree;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 /**
- * <code>Toolbar</code> class. Contains the different tools (i.e. Pencil) the user can use.
+ * <code>DrawFree.Toolbar</code> class. Contains the different tools (i.e. Pencil) the user can use.
  */
 public class Toolbar extends JPanel implements ActionListener {
 	// CONSTANTS //
@@ -25,12 +27,13 @@ public class Toolbar extends JPanel implements ActionListener {
 			b.setPreferredSize(DEFAULT_BUTTON_SIZE);
 			b.setToolTipText(Tool.getDescription(Tool.toTool(b.getText())));
 			this.add(b);
+			b.addActionListener(this);
 		}
 	}
 	
 	/**
 	 * Allows for changing of tools based on button press
-	 * @param e ActionEvent from button press
+	 * @param e <code>ActionEvent</code> from button press
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
