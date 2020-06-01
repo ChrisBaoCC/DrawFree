@@ -2,6 +2,7 @@ package DrawFree;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.*;
 
 /**
  * <code>DrawFree.Frame</code> class. Contains all the GUI for the app.
@@ -20,6 +21,9 @@ public class Frame extends JFrame {
 	private Optionbar optionbar;
 	
 	private Tool cursor;
+	
+	private ArrayList<Integer> xCoords;
+	private ArrayList<Integer> yCoords;
 	
 	/**
 	 * Constructor. Initializes settings.
@@ -59,6 +63,18 @@ public class Frame extends JFrame {
 	}
 	
 	public void doOption(String selected) {
-		
+		switch(Option.toOption(selected)) {
+			case UNDO: {
+				scroller.undo();
+			} case REDO: {
+				scroller.redo();
+			} case OPEN: {
+				scroller.open();
+			} case SAVE: {
+				scroller.save();
+			} case EXPORT: {
+				scroller.export();
+			}
+		}
 	}
 }

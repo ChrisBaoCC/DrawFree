@@ -17,6 +17,8 @@ public class Canvas extends JPanel {
 	// FIELDS //
 	private int width;
 	private int height;
+	private ArrayDeque<Shape> done;
+	private ArrayDeque<Shape> undone;
 	
 	/**
 	 * Default constructor. Initializes a <code>DrawFree.Canvas</code> with default width and height.

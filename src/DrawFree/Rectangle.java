@@ -5,24 +5,33 @@ import java.awt.*;
 /**
  * <code>Rectangle</code> class. Can draw itself on the canvas.
  */
-public class Rectangle implements Shape {
-	// FIELDS //
-	private final int x1, y1, x2, y2;
-	
+public class Rectangle extends java.awt.Rectangle implements Shape {
+	/**
+	 * Creates a new <code>Rectangle</code> with the specified corner points.
+	 * @param x1 X coordinate of the first corner.
+	 * @param y1 Y coordinate of the first corner.
+	 * @param x2 X coordinate of the second corner.
+	 * @param y2 Y coordinate of the second corner.
+	 */
 	Rectangle(int x1, int y1, int x2, int y2) {
-		this.x1 = x1;
-		this.y1 = y1;
-		this.x2 = x2;
-		this.y2 = y2;
+		super(x1, y1, x2-x1, y2-y1);
 	}
 	
+	/**
+	 * Returns information about the <code>Rectangle</code>'s points.
+	 * @return A <code>String</code> representation of this <code>Rectangle</code>.
+	 */
 	@Override
 	public String toString() {
-		return String.format("Rectangle (%d, %d, %d, %d)", x1, y1, x2, y2);
+		return String.format("Rectangle (%d, %d, %d, %d)", x, y, x+width, y+height);
 	}
 	
+	/**
+	 * Draws this <code>Rectangle</code>.
+	 * @param g The <code>Graphics2D</code> instance used to draw.
+	 */
 	@Override
 	public void drawShape(Graphics2D g) {
-		g.drawRect(x1, y1, x2-x1, y2-y1);
+		g.drawRect(x, y, width, height);
 	}
 }

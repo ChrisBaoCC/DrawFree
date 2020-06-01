@@ -13,8 +13,6 @@ public class Scroller extends JScrollPane {
 	
 	// FIELDS //
 	private Canvas canvas;
-	private int vertScrollBarPolicy;
-	private int horiScrollBarPolicy;
 	private int width;
 	private int height;
 	
@@ -24,14 +22,46 @@ public class Scroller extends JScrollPane {
 	Scroller() {
 		canvas = new Canvas();
 		this.setViewportView(canvas);
-		
-		this.vertScrollBarPolicy = ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
-		this.horiScrollBarPolicy = ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS;
-		this.setVerticalScrollBarPolicy(vertScrollBarPolicy);
-		this.setHorizontalScrollBarPolicy(horiScrollBarPolicy);
+		this.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		this.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		
 		height = DEFAULT_HEIGHT;
 		width = DEFAULT_WIDTH;
 		this.setPreferredSize(new Dimension(width, height));
+	}
+	
+	/**
+	 * Undoes an action in the canvas.
+	 */
+	void undo() {
+		// TODO: implement
+	}
+	
+	/**
+	 * Redoes an action in the canvas.
+	 */
+	void redo() {
+		// TODO: implement
+	}
+	
+	/**
+	 * Opens a file in the canvas.
+	 */
+	void open() {
+		// TODO: implement
+	}
+	
+	/**
+	 * Saves the current state of the canvas.
+	 */
+	void save() {
+		// TODO: implement
+	}
+	
+	/**
+	 * Saves a picture of the canvas.
+	 */
+	void export() {
+		// TODO: implement
 	}
 }
