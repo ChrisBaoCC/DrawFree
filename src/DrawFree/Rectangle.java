@@ -14,7 +14,10 @@ public class Rectangle extends java.awt.Rectangle implements Shape {
 	 * @param y2 Y coordinate of the second corner.
 	 */
 	Rectangle(int x1, int y1, int x2, int y2) {
-		super(x1, y1, x2-x1, y2-y1);
+		// Converts corners format to x, y, width, height format
+		super(Math.min(x1, x2), Math.min(y1, y2),
+				Math.max(x1, x2)-Math.min(x1, x2),
+				Math.max(y1, y2)-Math.min(y1, y2));
 	}
 	
 	/**
@@ -32,6 +35,6 @@ public class Rectangle extends java.awt.Rectangle implements Shape {
 	 */
 	@Override
 	public void drawShape(Graphics2D g) {
-		g.drawRect(x, y, width, height);
+		g.fillRect(x, y, width, height);
 	}
 }

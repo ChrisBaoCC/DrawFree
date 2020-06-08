@@ -22,9 +22,6 @@ public class Frame extends JFrame {
 	
 	private Tool cursor;
 	
-	private ArrayList<Integer> xCoords;
-	private ArrayList<Integer> yCoords;
-	
 	/**
 	 * Constructor. Initializes settings.
 	 */
@@ -38,6 +35,9 @@ public class Frame extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.pack();
 		this.setVisible(true);
+		
+		this.cursor = Tool.PENCIL;
+		scroller.updateCursor(cursor);
 	}
 	
 	/**
@@ -55,25 +55,32 @@ public class Frame extends JFrame {
 	}
 	
 	/**
-	 * Changes the selected tool based on command given; called in DrawFree.Toolbar.
-	 * @param selected the tool to switch to
+	 * Changes the selected tool based on command given;
+	 * called in <code>DrawFree.Toolbar</code>.
+	 * @param selected the option to do
 	 */
 	public void changeTool(String selected) {
 		cursor = Tool.toTool(selected);
+		scroller.updateCursor(cursor);
 	}
 	
 	public void doOption(String selected) {
 		switch(Option.toOption(selected)) {
 			case UNDO: {
 				scroller.undo();
+				break;
 			} case REDO: {
 				scroller.redo();
+				break;
 			} case OPEN: {
 				scroller.open();
+				break;
 			} case SAVE: {
 				scroller.save();
+				break;
 			} case EXPORT: {
 				scroller.export();
+				break;
 			}
 		}
 	}

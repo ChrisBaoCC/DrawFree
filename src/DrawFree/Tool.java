@@ -36,11 +36,11 @@ public enum Tool {
 			} case ERASER: {
 				return "Click and drag to paint out marks.";
 			} case ELLIPSE: {
-				return "Click and drag to create ellipses. Shift ⇧: circle";
+				return "Click and drag to create ellipses.";
 			} case RECTANGLE: {
-				return "Click and drag to create rectangles. Shift ⇧: square";
+				return "Click and drag to create rectangles.";
 			} case POLYGON: {
-				return "Click to place points. Click the first point to finish.";
+				return "Click to place points. Right-click to finish.";
 			} default: {
 				System.err.println("Invalid tool selected.");
 				return null;

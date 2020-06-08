@@ -11,10 +11,9 @@ public class Polygon extends java.awt.Polygon implements Shape {
 	 * Creates a new <code>Polygon</code> with the specified parameters.
 	 * @param x X coordinates for the points.
 	 * @param y Y coordinates for the points.
-	 * @param n The number of points.
 	 */
-	Polygon(ArrayList<Integer> x, ArrayList<Integer> y, int n) {
-		super(toArray(x), toArray(y), n);
+	Polygon(ArrayList<Integer> x, ArrayList<Integer> y) {
+		super(toArray(x), toArray(y), x.size());
 	}
 	
 	/**
@@ -50,6 +49,6 @@ public class Polygon extends java.awt.Polygon implements Shape {
 	 */
 	@Override
 	public void drawShape(Graphics2D g) {
-		g.drawPolygon(this);
+		g.fillPolygon(this);
 	}
 }

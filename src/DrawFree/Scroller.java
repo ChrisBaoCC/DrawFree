@@ -20,7 +20,7 @@ public class Scroller extends JScrollPane {
 	 * Constructor. Initializes default settings.
 	 */
 	Scroller() {
-		canvas = new Canvas();
+		canvas = new Canvas(this);
 		this.setViewportView(canvas);
 		this.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		this.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -31,37 +31,44 @@ public class Scroller extends JScrollPane {
 	}
 	
 	/**
+	 * Updates the canvas' cursor.
+	 */
+	void updateCursor(Tool t) {
+		canvas.updateCursor(t);
+	}
+	
+	/**
 	 * Undoes an action in the canvas.
 	 */
 	void undo() {
-		// TODO: implement
+		canvas.undo();
 	}
 	
 	/**
 	 * Redoes an action in the canvas.
 	 */
 	void redo() {
-		// TODO: implement
+		canvas.redo();
 	}
 	
 	/**
 	 * Opens a file in the canvas.
 	 */
 	void open() {
-		// TODO: implement
+		canvas.open();
 	}
 	
 	/**
 	 * Saves the current state of the canvas.
 	 */
 	void save() {
-		// TODO: implement
+		canvas.save();
 	}
 	
 	/**
 	 * Saves a picture of the canvas.
 	 */
 	void export() {
-		// TODO: implement
+		canvas.export();
 	}
 }
