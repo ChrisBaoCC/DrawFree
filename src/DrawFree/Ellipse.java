@@ -48,6 +48,6 @@ public class Ellipse implements Shape {
 	 */
 	@Override
 	public String toCode() {
-		return String.format("Pencil %d %d %d %d", x, y, x+w, y+h);
+		return String.format("Ellipse %d %d %d %d", x, y, x+w, y+h);
 	}
 }

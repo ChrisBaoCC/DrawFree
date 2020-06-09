@@ -86,7 +86,7 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 	 */
 	void undo() {
 		if(!done.isEmpty())
-			undone.push(done.get(done.size()-1));
+			undone.push(done.remove(done.size()-1));
 		this.repaint();
 	}
 	

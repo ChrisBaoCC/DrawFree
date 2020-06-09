@@ -68,7 +68,7 @@ public class Eraser implements Shape {
 	@Override
 	public String toCode() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Pencil ");
+		sb.append("Eraser ");
 		for(int i = 0; i < n; i++)
 			sb.append(x[i]).append(" ").append(y[i]).append(" ");
 		return sb.toString();

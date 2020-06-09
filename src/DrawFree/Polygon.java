@@ -50,7 +50,7 @@ public class Polygon extends java.awt.Polygon implements Shape {
 	@Override
 	public String toCode() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Pencil ");
+		sb.append("Polygon ");
 		for(int i = 0; i < npoints; i++)
 			sb.append(xpoints[i]).append(" ").append(ypoints[i]).append(" ");
 		return sb.toString();

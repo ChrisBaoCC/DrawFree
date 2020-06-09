@@ -44,6 +44,6 @@ public class Rectangle extends java.awt.Rectangle implements Shape {
 	 */
 	@Override
 	public String toCode() {
-		return String.format("Pencil %d %d %d %d", x, y, x+width, y+height);
+		return String.format("Rectangle %d %d %d %d", x, y, x+width, y+height);
 	}
 }
