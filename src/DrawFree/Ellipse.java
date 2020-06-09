@@ -41,4 +41,13 @@ public class Ellipse implements Shape {
 	public void drawShape(Graphics2D g) {
 		g.fillOval(x, y, w, h);
 	}
+	
+	/**
+	 * Returns information about the <code>Ellipse</code>.
+	 * @return A <code>String</code> representation of this <code>Ellipse</code>.
+	 */
+	@Override
+	public String toCode() {
+		return String.format("Pencil %d %d %d %d", x, y, x+w, y+h);
+	}
 }

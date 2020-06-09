@@ -40,7 +40,7 @@ public enum Option {
 			} case SAVE: {
 				return "Save your art as a .df file.";
 			} case EXPORT: {
-				return "Click and drag to create rectangles. Shift ⇧: square";
+				return "Save your art as a .png image.";
 			} default: {
 				System.err.println("Invalid tool selected.");
 				return null;

@@ -7,4 +7,5 @@ import java.awt.*;
  */
 interface Shape {
 	void drawShape(Graphics2D g);
+	String toCode();
 }

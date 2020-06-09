@@ -37,4 +37,13 @@ public class Rectangle extends java.awt.Rectangle implements Shape {
 	public void drawShape(Graphics2D g) {
 		g.fillRect(x, y, width, height);
 	}
+	
+	/**
+	 * Returns information about the <code>Rectangle</code>.
+	 * @return A <code>String</code> representation of this <code>Rectangle</code>.
+	 */
+	@Override
+	public String toCode() {
+		return String.format("Pencil %d %d %d %d", x, y, x+width, y+height);
+	}
 }

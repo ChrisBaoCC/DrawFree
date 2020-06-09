@@ -4,16 +4,24 @@ import java.awt.*;
 import java.util.*;
 
 /**
- * <code>Rectangle</code> class. Can draw itself on the canvas.
+ * <code>Pencil</code> class. Can draw itself on the canvas.
  */
-public class Polygon extends java.awt.Polygon implements Shape {
+public class Pencil implements Shape {
+	// FIELDS //
+	private final static int DRAW_RADIUS = 8;
+	private final int[] x, y;
+	private final int n;
+	
 	/**
-	 * Creates a new <code>Polygon</code> with the specified parameters.
+	 * Creates a new <code>Pencil</code> with the specified coordinates.
 	 * @param x X coordinates for the points.
 	 * @param y Y coordinates for the points.
 	 */
-	Polygon(ArrayList<Integer> x, ArrayList<Integer> y) {
-		super(toArray(x), toArray(y), x.size());
+	Pencil(ArrayList<Integer> x, ArrayList<Integer> y) {
+		// Converts corners format to x, y, width, height format
+		this.x = toArray(x);
+		this.y = toArray(y);
+		n = x.size();
 	}
 	
 	/**
@@ -29,18 +37,12 @@ public class Polygon extends java.awt.Polygon implements Shape {
 	}
 	
 	/**
-	 * Returns information about the <code>Polygon</code>'s points.
-	 * @return A <code>String</code> representation of this <code>Polygon</code>.
+	 * Returns information about the <code>Pencil</code>'s start- and endpoints.
+	 * @return A <code>String</code> representation of this <code>Pencil</code>.
 	 */
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Polygon (");
-		for(int i = 0; i < npoints-1; i++)
-			sb.append(xpoints[i]).append(", ").append(ypoints[i]).append(", ");
-		sb.append(xpoints[npoints-1]).append(", ").append(ypoints[npoints-1]);
-		sb.append(")");
-		return sb.toString();
+		return String.format("Pencil (%d, %d, %d, %d)", x[0], y[0], x[n-1], y[n-1]);
 	}
 	
 	/**
@@ -51,17 +53,19 @@ public class Polygon extends java.awt.Polygon implements Shape {
 	public String toCode() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Pencil ");
-		for(int i = 0; i < npoints; i++)
-			sb.append(xpoints[i]).append(" ").append(ypoints[i]).append(" ");
+		for(int i = 0; i < n; i++)
+			sb.append(x[i]).append(" ").append(y[i]).append(" ");
 		return sb.toString();
 	}
 	
 	/**
-	 * Draws this <code>Polygon</code>.
+	 * Draws this <code>Pencil</code>.
 	 * @param g The <code>Graphics2D</code> instance used to draw.
 	 */
 	@Override
 	public void drawShape(Graphics2D g) {
-		g.fillPolygon(this);
+		for(int i = 0; i < n; i++)
+			g.fillOval(x[i]-DRAW_RADIUS, y[i]-DRAW_RADIUS,
+					DRAW_RADIUS*2, DRAW_RADIUS*2);
 	}
 }
